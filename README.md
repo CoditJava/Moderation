@@ -14,5 +14,6 @@ Here are the classes that aren't mine in this project:
  - InventoryUI
  - UIListener
  - CC (Chat color API)
+ - ItemUtil
  
  I used Maven with this project but it's very easy to adapt it and be able to export it without. Just take a 1.8.8 spigot with lombok (Getter, setter etc) in dependencies, remove the pom.xml, and you should be good to go!
