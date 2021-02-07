@@ -1,5 +1,6 @@
 # Moderation
 I created this project so younger developers can up their game. Even though the code is rather simple, there are howerver some special things in this bukkit moderation project. 
+If you want me to add features you'd like to have without knowing how, contact me on discord and I'll try my best to add it!
 
 This project contains some pretty important features for a moderation plugin:
  - Moderation interface
