@@ -1,0 +1,4 @@
+name: Moderation
+author: Codit
+version: 1.0.0
+main: git.codit.moderation.Moderation

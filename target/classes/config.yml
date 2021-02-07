@@ -1,0 +1,6 @@
+chat-filter:
+  enabled: true
+  blocked-words:
+    - "words"
+chat:
+  restrictedPlayers:
