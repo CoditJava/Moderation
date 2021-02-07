@@ -19,7 +19,10 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import git.codit.moderation.Moderation;
 import git.codit.moderation.player.PlayerData;
@@ -106,6 +109,9 @@ public class PlayerListeners implements Listener {
 					player.teleport(target);
 					player.sendMessage(CC.PRIMARY + "You've been teleported on " + CC.SECONDARY + target.getName());
 					break;
+				case CHEST:
+					player.performCommand("mod reports");
+					break;
 					default:
 						break;
 				}
@@ -158,7 +164,21 @@ public class PlayerListeners implements Listener {
 				if(targetState != PlayerState.PLAYING) targetData.setPlayerState(PlayerState.PLAYING);
 				target.kickPlayer(CC.PRIMARY + "You've been kicked by " + CC.SECONDARY + player.getName());
 				break;
-				
+			case BOOK:
+				player.openInventory(getTargetInventory(target));
+				new BukkitRunnable() {
+					
+					@Override
+					public void run() {
+						if(player.getOpenInventory().getTopInventory().getName().contains(CC.PRIMARY + "Viewing")) {
+							PlayerInventory pi = target.getInventory();
+							for(int i = 0; i < pi.getSize(); i++) {
+								player.getOpenInventory().setItem(i, pi.getItem(i));
+							}
+						}
+					}
+				}.runTaskTimer(plugin, 10L, 10L);
+				break;
 				default:
 					break;
 			}
@@ -174,6 +194,17 @@ public class PlayerListeners implements Listener {
 				break;
 		}
 		
+	}
+	
+	private Inventory getTargetInventory(Player target) {
+		PlayerInventory pi = target.getInventory();
+		Inventory targetInventory = Bukkit.createInventory(null, 9 * 5, CC.PRIMARY + "Viewing " + CC.DARK_GRAY + "> " + CC.SECONDARY + target.getName());
+		for(int i = 0; i < pi.getSize(); i++) {
+			if(pi.getItem(i) != null) {
+				targetInventory.setItem(i, pi.getItem(i));
+			}
+		}
+		return targetInventory;
 	}
 	
 	@EventHandler
