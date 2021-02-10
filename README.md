@@ -18,3 +18,5 @@ Here are the classes that aren't mine in this project:
  - ItemUtil
  
  I used Maven with this project but it's very easy to adapt it and be able to export it without. Just take a 1.8.8 spigot with lombok (Getter, setter etc) in dependencies, remove the pom.xml, and you should be good to go!
+ 
+ Don't forget to check out my Youtube channel: https://www.youtube.com/channel/UCvvFszXrkKvuUfriqPSQ60A/featured
