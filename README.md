@@ -1,12 +1,15 @@
 # Moderation
+
+// PROJECT IS NOT UPDATED ANYMORE AND WON'T BE. FEATURES WITH A '*' MIGHT NOT WORK PROPERLY.
+
 I created this project so younger developers can up their game. Even though the code is rather simple, there are howerver some special things in this bukkit moderation project. 
 If you want me to add features you'd like to have without knowing how to code it, contact me on discord and I'll try my best to add it!
 
 This project contains some pretty important features for a moderation plugin:
  - Moderation interface
  - Freeze player (With inventory that cannot be bypassed with F6 (Twitch bypass))
- - Report system with an inventory to store the active reports
- - ChatManager (Muted, slowed, restricted)
+ - Report system with an inventory to store the active reports *
+ - ChatManager (Muted, slowed, restricted) *
  
 
 If you have any questions regarding some of the codes you can reach out to me on discord Vic#4111.
